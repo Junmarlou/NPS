@@ -1,0 +1,351 @@
+.survey-page {
+    max-width: 860px;
+}
+
+/* Period Selector */
+.survey-period {
+    margin-bottom: 24px;
+    padding: 20px 24px;
+}
+
+.survey-period-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.survey-period-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 4px;
+}
+
+.period-selectors {
+    display: flex;
+    gap: 12px;
+}
+
+/* Progress */
+.survey-progress {
+    margin-bottom: 32px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.progress-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.progress-count {
+    font-size: 0.8rem;
+    color: var(--gold-dark);
+    font-weight: 700;
+}
+
+/* Global NPS Card */
+.global-nps-card {
+    margin-bottom: 24px;
+    border-top: 4px solid var(--gold);
+    transition: box-shadow 0.3s ease;
+}
+
+.global-nps-card.completed {
+    border-color: var(--success);
+    box-shadow: 0 4px 20px rgba(46, 158, 107, 0.15);
+}
+
+.question-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.nps-scale-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.nps-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.nps-label-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nps-scale {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nps-btn {
+    flex: 1;
+    min-width: 44px;
+    height: 56px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border-strong);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nps-btn:hover {
+    border-color: var(--nps-color);
+    color: var(--nps-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nps-btn.nps-selected {
+    border-color: transparent;
+    /* bg handles it */
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+.nps-range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Categories Section */
+.categories-section {
+    margin-top: 32px;
+    margin-bottom: 40px;
+}
+
+.section-header {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.category-card {
+    animation: fadeIn 0.4s ease both;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.category-card.category-complete {
+    border-left-color: var(--success);
+    background: linear-gradient(to right, rgba(46, 158, 107, 0.03), transparent);
+}
+
+.category-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.category-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-input);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+}
+
+.category-icon {
+    font-size: 1.6rem;
+}
+
+.category-info {
+    flex: 1;
+}
+
+.category-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.category-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.category-check {
+    width: 24px;
+    height: 24px;
+    background: var(--success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    animation: slideIn 0.3s ease;
+}
+
+/* Emoji Row */
+.emoji-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--bg-input);
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.emoji-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 4px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.emoji-btn:hover {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.emoji-btn.emoji-selected {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--emoji-color);
+    transform: translateY(-2px);
+}
+
+.emoji-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    filter: grayscale(0.8) opacity(0.7);
+}
+
+.emoji-btn:hover .emoji-icon,
+.emoji-btn.emoji-selected .emoji-icon {
+    transform: scale(1.15);
+    filter: grayscale(0) opacity(1);
+}
+
+.emoji-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.1;
+    max-width: 60px;
+    opacity: 0.7;
+}
+
+.emoji-btn.emoji-selected .emoji-label {
+    color: var(--emoji-color);
+    opacity: 1;
+}
+
+/* Submit */
+.survey-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.submit-btn {
+    padding: 14px 40px;
+    font-size: 1rem;
+}
+
+.submit-hint {
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--danger);
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .survey-period-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nps-scale {
+        gap: 4px;
+    }
+
+    .nps-btn {
+        height: 44px;
+        font-size: 0.9rem;
+        min-width: 28px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .emoji-icon {
+        font-size: 1.5rem;
+    }
+
+    .emoji-label {
+        font-size: 0.6rem;
+        display: none;
+    }
+
+    /* Hide labels on mobile to save space? or stack */
+}
