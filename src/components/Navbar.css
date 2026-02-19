@@ -94,6 +94,46 @@
     border-radius: 2px 2px 0 0;
 }
 
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid var(--border);
+}
+
+.nav-user span {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.change-pw-btn,
+.logout-btn {
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.change-pw-btn:hover {
+    background: var(--gold-muted);
+    border-color: var(--gold);
+    color: var(--gold-dark);
+}
+
+.logout-btn:hover {
+    background: #fee2e2;
+    border-color: #ef4444;
+    color: #b91c1c;
+}
+
 @media (max-width: 480px) {
     .navbar {
         padding: 0 16px;

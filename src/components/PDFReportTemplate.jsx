@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell, LabelList } from 'recharts';
 import './PDFReport.css';
 
 const PDFReportTemplate = forwardRef(({ data, month, year, chartData }, ref) => {
@@ -20,6 +20,10 @@ const PDFReportTemplate = forwardRef(({ data, month, year, chartData }, ref) => 
     const improvements = categoryMetrics
         .filter(c => c.satisfactionPct < 60)
         .sort((a, b) => a.satisfactionPct - b.satisfactionPct);
+
+    const topCategory = categoryMetrics.length > 0
+        ? [...categoryMetrics].sort((a, b) => b.satisfactionPct - a.satisfactionPct)[0]
+        : null;
 
     const MONTHS = [
         'January', 'February', 'March', 'April', 'May', 'June',
@@ -61,12 +65,10 @@ const PDFReportTemplate = forwardRef(({ data, month, year, chartData }, ref) => 
                         <div className="pdf-metric-label">Satisfaction Rate</div>
                     </div>
                     <div className="pdf-metric-card">
-                        <div className="pdf-metric-value">{avgGlobalScore}</div>
-                        <div className="pdf-metric-label">Avg Rating (0-10)</div>
-                    </div>
-                    <div className="pdf-metric-card">
-                        <div className="pdf-metric-value">{total}</div>
-                        <div className="pdf-metric-label">Total Responses</div>
+                        <div className="pdf-metric-value" style={{ fontSize: '18px' }}>
+                            {topCategory ? topCategory.label : 'N/A'}
+                        </div>
+                        <div className="pdf-metric-label">Top Performer ({topCategory?.satisfactionPct}%)</div>
                     </div>
                 </div>
             </div>
@@ -100,6 +102,12 @@ const PDFReportTemplate = forwardRef(({ data, month, year, chartData }, ref) => 
                                 {chartData.map((entry, index) => (
                                     <Cell key={index} fill={getBarColor(entry.satisfaction)} />
                                 ))}
+                                <LabelList
+                                    dataKey="satisfaction"
+                                    position="top"
+                                    formatter={v => `${v}%`}
+                                    style={{ fontSize: '10px', fontWeight: 'bold', fill: '#333' }}
+                                />
                             </Bar>
                         </BarChart>
                     )}
