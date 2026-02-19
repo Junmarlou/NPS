@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, enableIndexedDbPersistence } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 // IMPORTANT: Replace these placeholder values with your actual Firebase project credentials
@@ -21,11 +22,16 @@ const isConfigured = firebaseConfig.apiKey !== "YOUR_API_KEY" &&
 let app = null;
 let db = null;
 
+let auth = null;
+
 if (isConfigured) {
     try {
         // Initialize Firebase
         app = initializeApp(firebaseConfig);
         db = getFirestore(app);
+
+        // Initialize Firebase Auth
+        auth = getAuth(app);
 
         // Enable offline persistence
         enableIndexedDbPersistence(db).catch((err) => {
@@ -42,4 +48,4 @@ if (isConfigured) {
     console.error("❌ Firebase is not configured! Please update src/firebase.js with your Firebase credentials.");
 }
 
-export { db, isConfigured };
+export { db, auth, isConfigured };
